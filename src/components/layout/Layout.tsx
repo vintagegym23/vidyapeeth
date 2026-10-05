@@ -3,6 +3,8 @@ import Header from './Header'
 import AnnouncementBar from './AnnouncementBar'
 import Footer from './Footer'
 import PageTransition from '../PageTransition'
+import EnquiryPopup from '../shared/EnquiryPopup'
+import WhatsAppButton from '../shared/WhatsAppButton'
 
 export default function Layout() {
   return (
@@ -17,6 +19,8 @@ export default function Layout() {
         </main>
       </div>
       <Footer />
+      <WhatsAppButton />
+      <EnquiryPopup />
     </div>
   )
 }

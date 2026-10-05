@@ -11,10 +11,7 @@ const navItems = [
   { label: 'Beyond Academics', to: '/beyond-academics' },
   { label: 'Admission', to: '/admissions' },
   { label: 'Gallery', to: '/gallery' },
-  { label: 'Blog', to: '/blog' },
   { label: 'Mandatory Disclosure', to: '/mandatory-disclosure' },
-  { label: 'Careers', to: '/careers' },
-  { label: 'Contact Us', to: '/contact' },
 ]
 
 function NavLinkItem({ label, to }: { label: string; to: string }) {
