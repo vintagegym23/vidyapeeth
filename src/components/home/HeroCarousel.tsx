@@ -6,7 +6,7 @@ import studentArrival from '../../assets/images/home-hero/student-arrival.jpg'
 import campusLife from '../../assets/images/home-hero/campus-life.jpg'
 import stemLearning from '../../assets/images/home-hero/stem-learning.jpg'
 
-const AUTOPLAY_MS = 6000
+const AUTOPLAY_MS = 4000
 
 const slides = [
   {
@@ -84,10 +84,13 @@ export default function HeroCarousel() {
       aria-roledescription="carousel"
       aria-label="Vidya Peeth highlights"
       className="relative isolate h-[600px] overflow-hidden bg-brand sm:h-[640px] lg:h-[min(760px,calc(100vh-80px))] lg:min-h-[620px]"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={() => setPaused(false)}
+      // Pause only for keyboard users; mouse clicks/taps on the arrows or dots shouldn't stop autoplay.
+      onFocus={(event) => {
+        if (event.target.matches(':focus-visible')) setPaused(true)
+      }}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setPaused(false)
+      }}
       onKeyDown={(event) => {
         if (event.key === 'ArrowLeft') prev()
         if (event.key === 'ArrowRight') next()
